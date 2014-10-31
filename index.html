@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title>FxOS WebAPis & Web Activities</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=792, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+</head>
+
+<body class="list">
+  <header class="caption">
+    <h1>Firefox OS WebAPIs & Web Activities</h1>
+    <p></p>
+  </header>
+  <section class="slide cover" id="Cover">
+    <div>
+      <h2>FxOS Web Activities & Web APIs</h2>
+      <p>Brought to you by <a href="http://2hr.me">Rabbi Hosssain</a>
+      </p>
+      <img src="pictures/cover.jpg" alt="">
+      <!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+      <style>
+        #Cover h2 {
+          margin: 30px 0 0;
+          color: #FFF;
+          text-align: center;
+          font-size: 65px;
+        }
+        #Cover p {
+          margin: 10px 0 0;
+          text-align: center;
+          color: #FFF;
+          font-style: italic;
+          font-size: 20px;
+        }
+        #Cover p a {
+          color: #FFF;
+        }
+      </style>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>WebAPIs & Web Activities?</h2>
+      <p>What the heck is this?</p>
+      <p class="next"><b>WebAPIs</b> are a set of APIs to connect and interact with some of your device features.</p>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>WebAPI</h2>
+      <p>WebAPIs are something like connecting your App to your device...</p>
+      <ul>
+        <li class='next'>Accelerometer</li>
+        <li class='next'>Oreientation Sensor</li>
+        <li class='next'>Lignt Sensor</li>
+        <li class='next'>GPS</li>
+        <li class='next'>& Bla bla bla</li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Web Activity</h2>
+      <p>Web Activities are something like having your App...</p>
+      <ul>
+        <li class='next'>Pick an image</li>
+        <li class='next'>Share a Music</li>
+        <li class='next'>Send SMS</li>
+        <li class='next'>Dial a Number</li>
+        <li class='next'>& Bla bla bla</li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Security?</h2>
+      <p>There are three types of App types regarding Firefox OS security model</p>
+      <ol>
+        <li calss='next'>Plain - Can access only Safe APIs</li>
+        <li calss='next'>Privileged - Can access some sensitive APIs with Users Permissions</li>
+        <li calss='next'>Certified - Can aceess everything</li>
+      </ol>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Lets get to the Business</h2>
+      <p>We will learn to use some Web APIs and Web Activies in our app.</p>
+      <p>All you need is to know creating Hello World app for Firefox OS</p>
+    </div>
+  </section>
+  <section class="slide shout cover">
+    <div>
+      <h2 style="color:white">Web APIs</h2>
+      <img src="pictures/webapi.jpg" alt="">
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Battery</h2>
+      <p>Calling the function</p>
+      <code>var battery = navigator.mozBattery;</code>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Check Bettery Level</h2>
+      <pre>
+      <code>var batteryLevel = battery.level * 100 + "%";</code>
+      <code>battery.addEventListener('levelchange', function{</code>
+      <code>console.log(battery.level);</code>
+      <code>});</code>
+    </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Check Charging Status</h2>
+      <pre>
+      <code>battery.addEventListener('chargingchange', function{</code>
+      <code>console.log(battery.charging);</code>
+      <code>});</code>
+    </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Vibration</h2>
+      <pre>
+      <code>navigator.vibrate(1000); <mark class="comment">// Vibrate 1 sec</mark></code>
+      <code>navigator.vibrate([1000, 500, 1000]); <mark class="comment">// Vibrate Pattern</mark></code>
+      <code>navigator.vibrate(0); <mark class="comment">// Stop Vibration</mark></code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Ambient Light Sensor</h2>
+      <pre>
+      <code>window.addEventListener('devicelight', function(light) {</code>
+      <code>console.log(light.value)</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Proximity Sensor</h2>
+      <pre>
+      <code>window.addEventListener('userproximity', function(proximity) {</code>
+      <code>console.log(proximity.near)</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Device Orientation</h2>
+      <pre>
+      <code>window.addEventListener("deviceorientation", function(event){</code>
+      <code>console.log(event.absolute);</code>
+      <code>console.log(event.alpha);</code>
+      <code>console.log(event.beta);</code>
+      <code>console.log(event.gamma);</code>
+      <code>)};</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Get Device Motion</h2>
+      <pre>
+      <code>window.addEventListener('devicemotion', function(motion){</code>
+      <code>console.log(motion.accelerationIncludingGravity.x);</code>
+      <code>console.log(motion.accelerationIncludingGravity.y);</code>
+      <code>console.log(motion.accelerationIncludingGravity.z);</code>
+      <code>console.log(motion.interval);</code>
+        });
+      </code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Notification API</h2>
+      <p>Get Permission</p>
+      <pre>
+      <code>"permissions": {</code>
+      <code>  "desktop-notification": {</code>
+      <code>    "description": "A Description Here"</code>
+      <code>  }</code>
+      <code>}</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Notification API</h2>
+      <p>Now Notify Everyone</p>
+      <pre>
+      <code>new Notification("title", {body: "notification body"});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Need More??? Check</h2>
+      <a href="https://developer.mozilla.org/en-US/docs/WebAPI"><h2>https://developer.mozilla.org/en-US/docs/WebAPI</h2></a>
+    </div>
+  </section>
+  <section class="slide shout cover">
+    <div>
+      <h2 style="color:white">Web Activities</h2>
+      <img src="pictures/webapi.jpg" alt="">
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Pick A file</h2>
+      <p>Calling the pick activity</p>
+      <pre>
+      <code>var activity = new MozActivity({</code>
+      <code>name: "pick",</code>
+      <code>data: {</code>
+      <code>type: "image/jpeg"</code>
+      <code>  }</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Pick A file</h2>
+      <p>Handling success</p>
+      <pre>
+    <code>activity.onsuccess = function() {</code>
+    <code>var picture = this.result;</code>
+    <code>console.log("A picture has been retrieved");</code>
+    <code>};</code>
+  </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Pick A file</h2>
+      <p>Handling error</p>
+      <pre>
+      <code>activity.onerror = function() {</code>
+      <code>console.log(this.error);</code>
+      <code>};</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Record Something</h2>
+      <p>Calling the activity</p>
+      <pre>
+      <code>var activity = new MozActivity({</code>
+      <code>name: "record"</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Record Something</h2>
+      <p>Handling success</p>
+      <pre>
+    <code>activity.onsuccess = function() {</code>
+    <code>var picture = this.result;</code>
+    <code>console.log("A picture has been retrieved");</code>
+    <code>};</code>
+  </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Record Something</h2>
+      <p>Handling error</p>
+      <pre>
+      <code>activity.onerror = function() {</code>
+      <code>console.log(this.error);</code>
+      <code>};</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Dial</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "dial",</code>
+      <code>data: {</code>
+      <code>number: "+8801712345678"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>SMS</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "new",</code>
+      <code>data: {</code>
+      <code>type: "websms/sms",</code>
+      <code>number: "+8801712345678"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>Save Contact</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "new",</code>
+      <code>data: {</code>
+      <code>type: "webcontacts/contact",</code>
+      <code>params: { </code>
+      <code>givenName: "Jhon",</code>
+      <code>lastName: "Doe",</code>
+      <code>tel: "007",</code>
+      <code>email: "jhon@doe.com",</code>
+      <code>address: "Addrress Line",</code>
+      <code>note: "This is a note",</code>
+      <code>company: "Company"</code>
+      <code>}</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Share URL</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "share",</code>
+      <code>data: {</code>
+      <code>number: 1,</code>
+      <code>type: "url",</code>
+      <code>url: "http://example.com/"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>View URL</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "view",</code>
+      <code>data: {</code>
+      <code>type: "url",</code>
+      <code>url: "http://example.com/"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>Compose Mail</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "new",</code>
+      <code>data: {</code>
+      <code>type: "mail",</code>
+      <code>url: "mailto:someone@example.com"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>Save Bookmark</h2>
+      <pre>
+      <code>new MozActivity({</code>
+      <code>name: "save-bookmark",</code>
+      <code>data: {</code>
+      <code>type: "url",</code>
+      <code>url: "http://robertnyman.com",</code>
+      <code>name: "Robert's talk",</code>
+      <code>icon: "http://robertnyman.com/favicon.png"</code>
+      <code>}</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide shout cover">
+    <div>
+      <h2 style="color:white">Thank You</h2>
+      <img src="pictures/picture.jpg" alt="">
+    </div>
+  </section>
+  <section class="slide cover">
+    <div>
+      <h2 style="color:white">Rabbi Hossain</h2>
+      <h2 style="color:white">Twitter: @r4bb1h</h2>
+      <h2 style="color:white">Web: http://2hr.me/</h2>
+      <img src="pictures/picture.jpg" alt="">
+    </div>
+  </section>
+
+  <p class="badge"><a href="https://github.com/rabbihossain/FxOS-Slides">Fork me on Github</a>
+  </p>
+  <!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+  <div class="progress">
+    <div></div>
+  </div>
+  <script src="shower/shower.min.js"></script>
+  <!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+  <!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+
+</html>
