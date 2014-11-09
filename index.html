@@ -104,7 +104,7 @@
   <section class="slide">
     <div>
       <h2>Battery</h2>
-      <p>Let's Get Started</p>
+      <p>Let's get started</p>
       <code>var battery = navigator.mozBattery;</code>
     </div>
   </section>
@@ -159,6 +159,44 @@
       </pre>
     </div>
   </section>
+  <section class="slide">
+    <div>
+      <h2>getUserMedia API</h2>
+      <p>I need permission?</p>
+      <pre>
+      <code>"permissions": {</code>
+                <code>"audio-capture": {</code>
+                <code>"description": "Required to capture audio via getUserMedia"</code>
+              <code>},</code>
+            <code>"video-capture": {</code>
+                <code>"description": "Required to capture audio via getUserMedia"</code>
+              <code>}</code>
+        <code>}</code>
+      </pre>
+    </div>
+  </section>
+  <section class="slide">
+    <div>
+      <h2>getUserMedia API</h2>
+      <pre>
+       <code>navigator.getUserMedia = navigator.mozGetUserMedia;</code>
+       <code>navigator.getUserMedia(</code>
+       <code>{</code>
+       <code>   video:true,</code>
+       <code>   audio:false</code>
+       <code>},</code>
+       <code>function(stream) {</code>
+       <code>   v.src = window.URL.createObjectURL(stream);</code>
+       <code>   v.play();</code>
+       <code>},</code>
+       <code>function(error) {</code>
+       <code>   alert('Something went wrong. (error code ' + error.code + ')');</code>
+       <code>}</code>
+       <code>);</code>
+      </pre>
+    </div>
+  </section>
+
   <section class="slide">
     <div>
       <h2>Device Orientation</h2>
