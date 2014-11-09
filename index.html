@@ -199,6 +199,42 @@
 
   <section class="slide">
     <div>
+      <h2>MediaRecorder API</h2>
+      <p>MediaRecorder API can only be used along with getUserMedia API</p>
+      <pre>
+      <code>var MediaRecorder = new MediaRecorder(stream);</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>MediaRecorder API</h2>
+      <p>MediaRecorder API </p>
+      <pre>
+      <code>MediaRecorder.start()</code>
+      <code>MediaRecorder.stop()</code>
+      <code>MediaRecorder.pause()</code>
+      <code>MediaRecorder.requestData()</code>
+      <code>MediaRecorder.state</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>MediaRecorder API</h2>
+      <p>MediaRecorder API </p>
+      <pre>
+      <code>mediaRecorder.addEventListener('dataavailable', function(media) {</code>
+      <code>  console.log(media.data);</code>
+      <code>});</code>
+      </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div>
       <h2>Device Orientation</h2>
       <pre>
       <code>window.addEventListener("deviceorientation", function(event){</code>
